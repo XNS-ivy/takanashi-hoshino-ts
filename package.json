@@ -1,0 +1,27 @@
+{
+  "name": "takanashi-hoshino-ts",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun --watch ./index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/dotenv": "^8.2.3",
+    "@types/node-cache": "^4.2.5",
+    "@types/pino": "^7.0.5",
+    "@types/qrcode": "^1.5.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "baileys": "^6.7.18",
+    "dotenv": "^17.2.1",
+    "node-cache": "^5.1.2",
+    "pino": "^9.9.0",
+    "qrcode": "^1.5.4"
+  }
+}
