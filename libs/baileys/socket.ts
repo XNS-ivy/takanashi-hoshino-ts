@@ -70,7 +70,6 @@ async function startWASocket() {
         if (type == 'notify') {
             for(const message of messages){
                 const messageProcess = processingMessage(message)
-                console.log(messageProcess)
             }
         }
     })

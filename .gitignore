@@ -142,3 +142,6 @@ vite.config.ts.timestamp-*
 creds/
 auth/
 creds.*
+
+# ignore pm2 ecosystem config build your own custom pm2 ecosystem config
+ecosystem.config.*

@@ -1,4 +1,7 @@
 import { type WAMessage, type WAMessageKey } from "baileys"
+import botConfig from "modules/loadBotConfig"
+
+const { prefix } = botConfig()
 
 type TextContent = {
   kind: "text"
@@ -64,15 +67,26 @@ export function processingMessage(msg: WAMessage): OutMessageProcess | undefined
       }
     }
   }
+  if ((content?.kind == 'text' && content?.text.startsWith(prefix)) || (content?.kind == 'media' && content?.caption.startsWith(prefix))) {
+    const getTypeContent = content?.kind === 'text' ? content.text : content.caption
+    if (!getTypeContent) return
 
-  return {
-    key,
-    mainType,
-    messageObject: filtered,
-    content
+    const fetchCommand = getTypeContent.slice(prefix.length).trim()
+    if (!fetchCommand) return
+
+    const [cmd, ...args] = fetchCommand.split(/\s+/)
+    console.log(`FETCH: ${fetchCommand}, CMD: ${cmd}, ARGS: ${args}`)
+
+    return {
+      key,
+      mainType,
+      messageObject: filtered,
+      content
+    }
   }
-}
 
-function initACommand(command: string, args: string | null) {
-    const isCommand = command.startsWith('!') // prefix
-}
+  async function initACommand(command: string, args: string | null, media: boolean) {
+    return {
+      outMessage: 'test'
+    }
+  }
